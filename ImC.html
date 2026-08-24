@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/IMC.css">
+    <script src="./src/js/IMC.js"></script>
+    <title>Calculadora de peso</title>
+</head>
+<body id="imc">
+    <form id="form1">
+        <h1>CALCULADORA</h1>
+        <br><br/>
+
+        <label for="peso">Informe o seu peso em quilogramas:</label>
+        <input type="text" name="peso" id="peso"/>
+        <br/>
+        <label for="altu">Informe a sua altura em metros:</label>
+        <input type="text" name="altu" id="altu"/>
+        <br/>
+        
+
+        <div>
+            <label for="txtsexo">Gênero: </label>
+            <input type="radio" name="txtsexo" id="sexo" value="F" required>
+            <label for="sexo">Feminino</label>
+            <input type="radio" name="txtsexo" id="sexo2" value="M" required>
+            <label for="sexo2">Masculino</label>
+            <input type="radio" name="txtsexo" id="sexo2" value="I" required>
+            <label for="sexo2">Intersexo</label>
+            <input type="radio" name="txtsexo" id="sexo2" value="O" required>
+            <label for="sexo2">Outro</label>
+        </div>
+
+        <label for="resu">O seu IMC é de:</label>
+        <input type="text" name="resu" id="resu" disabled/>
+        <br/>
+
+
+        <input type="reset" value="limpar" onclick="limpar()">
+    </form>
+</body>
+</html>
