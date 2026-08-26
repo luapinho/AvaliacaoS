@@ -9,7 +9,7 @@
 </head>
 <body id="imc">
     <form id="form1">
-        <h1>CALCULADORA</h1>
+        <h1>CALCULADORA IMC E PESO REAL</h1>
         <br><br/>
 
         <label for="peso">Informe o seu peso em quilogramas:</label>
@@ -22,18 +22,22 @@
 
         <div>
             <label for="txtsexo">Gênero: </label>
-            <input type="radio" name="txtsexo" id="sexo" value="F" required>
+            <input type="radio" name="txtsexo" id="sexo" value="F" required checked>
             <label for="sexo">Feminino</label>
             <input type="radio" name="txtsexo" id="sexo2" value="M" required>
             <label for="sexo2">Masculino</label>
-            <input type="radio" name="txtsexo" id="sexo2" value="I" required>
-        </div>
+        </div>    
+        <br>
 
         <label for="resu">O seu IMC é de:</label>
         <input type="text" name="resu" id="resu" disabled/>
         <br/>
 
+        <label >Seu peso ideal é:</label>
+        <input type="text" id="peso-ideal" disabled>
+        <br>
 
+        <input type="button" value="Calcular" onclick="calcular()">
         <input type="reset" value="limpar" onclick="limpar()">
     </form>
 </body>
