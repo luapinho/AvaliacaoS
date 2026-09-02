@@ -23,27 +23,25 @@
         <input type="text" name="ano" id="ano"/>
         <br/><br>
         
-        <label for="ano">Seu mes de nascimento foi: </label>
-        <input type="text" name="ano" id="ano" readonly/>
+        <label for="mesnas">Seu mes de nascimento foi: </label>
+        <input type="text" name="mesnas" id="mesnas" readonly/>
         <br/>
-        
         
         <label for="ano">O dia da semana foi: </label>
         <input type="text" name="ano" id="ano" readonly/>
-        <br/><br>
         
         
-        <label for="signo">Sob o signo de:  </label>
-        <input type="image" name="signo" id="signo" readonly/>
-        <br/>
+        <tr>
+            <td class="maior">Sob o Signo de:</td>
+            <td class="menor"><img src="../Signo/src/assets/images/vazio.png" name="signo"/></td>
+        </tr>
+        <br><br>
 
-        
+        <input type="button" value="Exibir" onclick="Calcular()">
+        <input type="reset" value="C" onclick="limpar()">
 
     </form>
     
-
-
-
     <Script src="./src/js/Signo.js"></Script>
 </body>
 </html>
