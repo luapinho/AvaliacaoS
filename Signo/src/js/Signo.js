@@ -29,7 +29,7 @@ function Calcular() {
 
     if (d_ani <= 0 || isNaN(d_ani) || d_ani > 31) {
         alert("Dia inválido, dia está vazio ou não é númerico ou o dia está ultrapassando o 31.");
-        return;
+        location.reload();
     }
     else {
         d_ani = parseInt(d_ani);
@@ -37,7 +37,7 @@ function Calcular() {
 
     if (m_ani < 1 || isNaN(m_ani) || m_ani > 12) {
         alert("Mês inválido, mês está vazio ou não é númerico ou o mes passou de 12.");
-        return;
+        location.reload();
     }
     else {
         m_ani = parseInt(m_ani);
@@ -45,7 +45,7 @@ function Calcular() {
 
     if (a_ani <= 0 || isNaN(a_ani) || a_ani.length != 4) {
         alert("Ano inválido, ano está vazio ou não é númerico ou não pode maior que 4 dígitos.");
-        return;
+        location.reload();
     }
     else {
         a_ani = parseInt(a_ani);
@@ -70,7 +70,7 @@ function Calcular() {
         else if ((m_ani == m_hoj) && (d_ani > d_hoj))
             idade = idade - 1;
 
-        document.getElementById("mesnas").value = idade;
+        document.getElementById("Idade").value = idade;
 
         /*carregando os valores do dia, mês e ano de aniversário, 
         nas posições correspondentes do objeto Date()*/
@@ -91,20 +91,33 @@ function Calcular() {
             document.getElementById("mesnas").value = "Março";
     }
 
-    switch (m_ani) {
-        case 1:
-            {
-                document.getElementById("mesnas").value = "Janeiro";
-                break;
-            }
+    var ehBissexto = (a_ani % 4 == 0 && a_ani % 100 != 0) || (a_ani % 400 == 0);
 
-        case 2:
-            {
-                document.getElementById("mesnas").value = "Fevereiro";
-                break;
-            }
 
+    if (m_ani == 2) {
+        if (ehBissexto && (d_ani < 1 || d_ani > 29)) {
+            alert("É ano bissexto! O dia para Fevereiro deve ser entre 1 e 29.");
+            location.reload();
+        } else if (!ehBissexto && (d_ani < 1 || d_ani > 28)) {
+            alert("Não é ano bissexto! O dia para Fevereiro deve ser entre 1 e 28.");
+            location.reload();
+        }
     }
+
+    else if (m_ani == 4 || m_ani == 6 || m_ani == 9 || m_ani == 11) {
+        if (d_ani < 1 || d_ani > 30) {
+            alert("Este mês possui apenas 30 dias!");
+            location.reload();
+        }
+    }
+
+    else {
+        if (d_ani < 1 || d_ani > 31) {
+            alert("Este mês possui no máximo 31 dias!");
+            location.reload();
+        }
+    }
+
 
     if (((d_ani >= 20) && (m_ani == 1)) || ((d_ani <= 18) && (m_ani == 2)))
         document.images["signo"].src = "src/assets/images/aquario.png"
@@ -143,7 +156,7 @@ function Calcular() {
         document.images["signo"].src = "src/assets/images/capricornio.png"
 }
 
-function limpar(){
+function limpar() {
     document.getElementById("dia").focus();
     document.images["signo"].src = "src/assets/images/vazio.png"
 }
