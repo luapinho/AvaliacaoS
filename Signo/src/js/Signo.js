@@ -94,50 +94,56 @@ function Calcular() {
     switch (m_ani) {
         case 1:
             {
-                document.getElementById("txtmext").value = "Janeiro";
+                document.getElementById("mesnas").value = "Janeiro";
                 break;
             }
 
         case 2:
             {
-                document.getElementById("txtmext").value = "Fevereiro";
+                document.getElementById("mesnas").value = "Fevereiro";
                 break;
             }
 
     }
 
-if (((d_ani >= 20) && (m_ani == 1)) || ((d_ani <= 18) && (m_ani == 2)))
-    document.images["signo"].src = "src/assets/images/aquario.png"
+    if (((d_ani >= 20) && (m_ani == 1)) || ((d_ani <= 18) && (m_ani == 2)))
+        document.images["signo"].src = "src/assets/images/aquario.png"
 
-else if (((d_ani >= 19) && (m_ani == 2)) || ((d_ani <= 20) && (m_ani == 3)))
-    document.images["signo"].src = "src/assets/images/peixes.png"
-else if (((d_ani >= 21) && (m_ani == 3)) || ((d_ani <= 19) && (m_ani == 4)))
-    document.images["signo"].src = "src/assets/images/aries.png"
+    else if (((d_ani >= 19) && (m_ani == 2)) || ((d_ani <= 20) && (m_ani == 3)))
+        document.images["signo"].src = "src/assets/images/peixes.png"
 
-else if (((d_ani >= 20) && (m_ani == 4)) || ((d_ani <= 20) && (m_ani == 5)))
-    document.images["signo"].src = "src/assets/images/touro.png"
+    else if (((d_ani >= 21) && (m_ani == 3)) || ((d_ani <= 19) && (m_ani == 4)))
+        document.images["signo"].src = "src/assets/images/aries.png"
 
-else if (((d_ani >= 21) && (m_ani == 5)) || ((d_ani <= 20) && (m_ani == 6)))
-    document.images["signo"].src = "src/assets/images/gemos.png"
+    else if (((d_ani >= 20) && (m_ani == 4)) || ((d_ani <= 20) && (m_ani == 5)))
+        document.images["signo"].src = "src/assets/images/touro.png"
 
-else if (((d_ani >= 21) && (m_ani == 6)) || ((d_ani <= 22) && (m_ani == 7)))
-    document.images["signo"].src = "src/assets/images/cancer.png"
+    else if (((d_ani >= 21) && (m_ani == 5)) || ((d_ani <= 20) && (m_ani == 6)))
+        document.images["signo"].src = "src/assets/images/gemos.png"
 
-else if (((d_ani >= 23) && (m_ani == 7)) || ((d_ani <= 22) && (m_ani == 8)))
-    document.images["signo"].src = "src/assets/images/leao.png"
+    else if (((d_ani >= 21) && (m_ani == 6)) || ((d_ani <= 22) && (m_ani == 7)))
+        document.images["signo"].src = "src/assets/images/cancer.png"
 
-else if (((d_ani >= 23) && (m_ani == 8)) || ((d_ani <= 22) && (m_ani == 9)))
-    document.images["signo"].src = "src/assets/images/virgem.png"
+    else if (((d_ani >= 23) && (m_ani == 7)) || ((d_ani <= 22) && (m_ani == 8)))
+        document.images["signo"].src = "src/assets/images/leao.png"
 
-else if (((d_ani >= 23) && (m_ani == 9)) || ((d_ani <= 22) && (m_ani == 10)))
-    document.images["signo"].src = "src/assets/images/libra.png"
+    else if (((d_ani >= 23) && (m_ani == 8)) || ((d_ani <= 22) && (m_ani == 9)))
+        document.images["signo"].src = "src/assets/images/virgem.png"
 
-else if (((d_ani >= 23) && (m_ani == 10)) || ((d_ani <= 21) && (m_ani == 11)))
-    document.images["signo"].src = "src/assets/images/escorpiao.png"
+    else if (((d_ani >= 23) && (m_ani == 9)) || ((d_ani <= 22) && (m_ani == 10)))
+        document.images["signo"].src = "src/assets/images/libra.png"
 
-else if (((d_ani >= 22) && (m_ani == 11)) || ((d_ani <= 21) && (m_ani == 12)))
-    document.images["signo"].src = "src/assets/images/sagitario.png"
+    else if (((d_ani >= 23) && (m_ani == 10)) || ((d_ani <= 21) && (m_ani == 11)))
+        document.images["signo"].src = "src/assets/images/escorpiao.png"
 
-else
-    document.images["signo"].src = "src/assets/images/capricornio.png"
+    else if (((d_ani >= 22) && (m_ani == 11)) || ((d_ani <= 21) && (m_ani == 12)))
+        document.images["signo"].src = "src/assets/images/sagitario.png"
+
+    else
+        document.images["signo"].src = "src/assets/images/capricornio.png"
+}
+
+function limpar(){
+    document.getElementById("dia").focus();
+    document.images["signo"].src = "src/assets/images/vazio.png"
 }
