@@ -75,85 +75,121 @@ function Calcular() {
         /*carregando os valores do dia, mês e ano de aniversário, 
         nas posições correspondentes do objeto Date()*/
 
-        hoje.setDate(d_ani);
-        hoje.setMonth(m_ani - 1);
-        hoje.setFullYear(a_ani);
+        var ehBissexto = (a_ani % 4 == 0 && a_ani % 100 != 0) || (a_ani % 400 == 0);
 
-        document.getElementById("txtsema").value = hoje.getDay();
-        document.getElementById("txtsema").value = dia_semana[hoje.getDay()];
-        document.getElementById("mesnas").value = nome_mes[m_ani - 1];
 
+        if (m_ani == 2) {
+            if (ehBissexto && (d_ani < 1 || d_ani > 29)) {
+                alert("É ano bissexto! O dia para Fevereiro deve ser entre 1 e 29.");
+                location.reload();
+
+            } else if (!ehBissexto && (d_ani < 1 || d_ani > 28)) {
+                alert("Não é ano bissexto! O dia para Fevereiro deve ser entre 1 e 28.");
+                location.reload();
+
+            }
+        }
+
+        else if (m_ani == 4 || m_ani == 6 || m_ani == 9 || m_ani == 11) {
+            if (d_ani < 1 || d_ani > 30) {
+                alert("Este mês possui apenas 30 dias!");
+                location.reload();
+
+            }
+        }
+
+        else {
+            if (d_ani < 1 || d_ani > 31) {
+                alert("Este mês possui no máximo 31 dias!");
+                location.reload();
+
+            }
+        }
+
+        var dataNascimento = new Date(a_ani, m_ani - 1, d_ani);
+
+        document.getElementById("txtsema").value =
+            dia_semana[dataNascimento.getDay()];
+
+        document.getElementById("mesnas").value =
+            nome_mes[m_ani - 1];
         if (m_ani == 1)
             document.getElementById("mesnas").value = "Janeiro";
         else if (m_ani == 2)
             document.getElementById("mesnas").value = "Fevereiro";
         else if (m_ani == 3)
             document.getElementById("mesnas").value = "Março";
-    }
-
-    var ehBissexto = (a_ani % 4 == 0 && a_ani % 100 != 0) || (a_ani % 400 == 0);
-
-
-    if (m_ani == 2) {
-        if (ehBissexto && (d_ani < 1 || d_ani > 29)) {
-            alert("É ano bissexto! O dia para Fevereiro deve ser entre 1 e 29.");
-            location.reload();
-        } else if (!ehBissexto && (d_ani < 1 || d_ani > 28)) {
-            alert("Não é ano bissexto! O dia para Fevereiro deve ser entre 1 e 28.");
-            location.reload();
-        }
-    }
-
-    else if (m_ani == 4 || m_ani == 6 || m_ani == 9 || m_ani == 11) {
-        if (d_ani < 1 || d_ani > 30) {
-            alert("Este mês possui apenas 30 dias!");
-            location.reload();
-        }
-    }
-
-    else {
-        if (d_ani < 1 || d_ani > 31) {
-            alert("Este mês possui no máximo 31 dias!");
-            location.reload();
-        }
+        else if (m_ani == 4)
+            document.getElementById("mesnas").value = "Abril";
+        else if (m_ani == 5)
+            document.getElementById("mesnas").value = "Maio";
+        else if (m_ani == 6)
+            document.getElementById("mesnas").value = "Junho";
+        else if (m_ani == 7)
+            document.getElementById("mesnas").value = "Julho";
+        else if (m_ani == 8)
+            document.getElementById("mesnas").value = "Agosto";
+        else if (m_ani == 9)
+            document.getElementById("mesnas").value = "Setembro";
+        else if (m_ani == 10)
+            document.getElementById("mesnas").value = "Outubro";
+        else if (m_ani == 11)
+            document.getElementById("mesnas").value = "Novembro";
+        else if (m_ani == 12)
+            document.getElementById("mesnas").value = "Dezembro";
     }
 
 
-    if (((d_ani >= 20) && (m_ani == 1)) || ((d_ani <= 18) && (m_ani == 2)))
+
+
+    if (((d_ani >= 20) && (m_ani == 1)) || ((d_ani <= 18) && (m_ani == 2))){
         document.images["signo"].src = "src/assets/images/aquario.png"
+        document.getElementById("sig").value = "aquario";}
 
-    else if (((d_ani >= 19) && (m_ani == 2)) || ((d_ani <= 20) && (m_ani == 3)))
+    else if (((d_ani >= 19) && (m_ani == 2)) || ((d_ani <= 20) && (m_ani == 3))){
         document.images["signo"].src = "src/assets/images/peixes.png"
+        document.getElementById("sig").value = "peixes";}
 
-    else if (((d_ani >= 21) && (m_ani == 3)) || ((d_ani <= 19) && (m_ani == 4)))
+    else if (((d_ani >= 21) && (m_ani == 3)) || ((d_ani <= 19) && (m_ani == 4))){
         document.images["signo"].src = "src/assets/images/aries.png"
+        document.getElementById("sig").value = "Aries";}
 
-    else if (((d_ani >= 20) && (m_ani == 4)) || ((d_ani <= 20) && (m_ani == 5)))
+    else if (((d_ani >= 20) && (m_ani == 4)) || ((d_ani <= 20) && (m_ani == 5))){
         document.images["signo"].src = "src/assets/images/touro.png"
+        document.getElementById("sig").value = "Touro";}
 
-    else if (((d_ani >= 21) && (m_ani == 5)) || ((d_ani <= 20) && (m_ani == 6)))
+    else if (((d_ani >= 21) && (m_ani == 5)) || ((d_ani <= 20) && (m_ani == 6))){
         document.images["signo"].src = "src/assets/images/gemos.png"
+        document.getElementById("sig").value = "Gemêos";}
 
-    else if (((d_ani >= 21) && (m_ani == 6)) || ((d_ani <= 22) && (m_ani == 7)))
+    else if (((d_ani >= 21) && (m_ani == 6)) || ((d_ani <= 22) && (m_ani == 7))){
         document.images["signo"].src = "src/assets/images/cancer.png"
+        document.getElementById("sig").value = "Cancêr";}
 
-    else if (((d_ani >= 23) && (m_ani == 7)) || ((d_ani <= 22) && (m_ani == 8)))
+    else if (((d_ani >= 23) && (m_ani == 7)) || ((d_ani <= 22) && (m_ani == 8))){
         document.images["signo"].src = "src/assets/images/leao.png"
+        document.getElementById("sig").value = "Leão";}
 
-    else if (((d_ani >= 23) && (m_ani == 8)) || ((d_ani <= 22) && (m_ani == 9)))
+    else if (((d_ani >= 23) && (m_ani == 8)) || ((d_ani <= 22) && (m_ani == 9))){
         document.images["signo"].src = "src/assets/images/virgem.png"
+        document.getElementById("sig").value = "Virgem";}
 
-    else if (((d_ani >= 23) && (m_ani == 9)) || ((d_ani <= 22) && (m_ani == 10)))
+    else if (((d_ani >= 23) && (m_ani == 9)) || ((d_ani <= 22) && (m_ani == 10))){
         document.images["signo"].src = "src/assets/images/libra.png"
+        document.getElementById("sig").value = "Libra";}
 
-    else if (((d_ani >= 23) && (m_ani == 10)) || ((d_ani <= 21) && (m_ani == 11)))
+    else if (((d_ani >= 23) && (m_ani == 10)) || ((d_ani <= 21) && (m_ani == 11))){
         document.images["signo"].src = "src/assets/images/escorpiao.png"
+        document.getElementById("sig").value = "escorpião";}
 
-    else if (((d_ani >= 22) && (m_ani == 11)) || ((d_ani <= 21) && (m_ani == 12)))
+    else if (((d_ani >= 22) && (m_ani == 11)) || ((d_ani <= 21) && (m_ani == 12))){
         document.images["signo"].src = "src/assets/images/sagitario.png"
+        document.getElementById("sig").value = "Sagitario";}
 
-    else
+    else{
         document.images["signo"].src = "src/assets/images/capricornio.png"
+        document.getElementById("sig").value = "Capricornio";
+    }
 }
 
 function limpar() {
